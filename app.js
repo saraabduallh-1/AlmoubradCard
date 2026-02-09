@@ -225,10 +225,10 @@ async function copySmartLink() {
 
   try {
     await navigator.clipboard.writeText(fullUrl);
-    statusEl.textContent = "✅ تم نسخ الرابط — ارسليه للعميل";
+    statusEl.textContent = " تم نسخ الرابط";
   } catch {
     // في بعض المتصفحات ممكن منع clipboard
-    statusEl.textContent = "انسخي الرابط يدويًا من شريط العنوان بالأعلى.";
+    statusEl.textContent = "انسخ الرابط يدويًا من شريط العنوان بالأعلى.";
   }
 }
 
