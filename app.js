@@ -36,7 +36,7 @@ const TEMPLATES = {
     width: 1080,
     height: 1350,
     textBox: { x: 540, y: 1000, maxWidth: 820 },
-    baseFontSize: 40,
+    baseFontSize: 45,
     color: "#0E0E0E"
   },
   template2: {
@@ -44,7 +44,7 @@ const TEMPLATES = {
     width: 1080,
     height: 1350,
     textBox: { x: 540, y: 400, maxWidth: 820 },
-    baseFontSize: 40,
+    baseFontSize: 45,
     color: "#2F6B3C"
   },
 
@@ -53,7 +53,7 @@ const TEMPLATES = {
     width: 1080,
     height: 1350,
     textBox: { x: 540, y: 1020, maxWidth: 820 },
-    baseFontSize: 40,
+    baseFontSize: 45,
     color: "#C9A24D"
   }
 };
@@ -177,10 +177,9 @@ function draw() {
   ctx.font = `700 ${fontSize}px ${fontFamily}`;
 
   // (اختياري) ظل خفيف يساعد القراءة على خلفية مزدحمة
-  ctx.shadowColor = "rgba(0,0,0,0.18)";
-  ctx.shadowBlur = 6;
+ ctx.shadowBlur = 6;
   ctx.shadowOffsetY = 2;
-
+  
   // ارسم الاسم
   ctx.fillText(name, cfg.textBox.x, cfg.textBox.y);
   // رجع الظل للوضع الطبيعي
