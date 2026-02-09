@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>معايدة جاهزة</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+
+  <body>
+    <main class="container">
+      <!-- Header: عنوان بسيط -->
+      <header class="header">
+        <h1>معايدة أسرة آل مُبرد</h1>
+       <p>صمّم معايدتك بنفسك - اختر القالب، أضِف أسمك، ثم حمّلها</p>
+      </header>
+
+      <section class="layout">
+        <!-- Controls: هنا كل عناصر التحكم -->
+        <aside class="controls">
+          <!-- اختيار القالب -->
+          <label class="field">
+            <span>اختر قالبك</span>
+            <div class="select-wrap">
+            <select id="templateSelect">
+              <option value="template1" selected >معايدة البيج الرملي - مربع </option>
+              <option value="template2">معايدة الذهبي التراثي - مربع </option>
+              <option value="template3">معايدة أخضر النخيل - مربع </option>
+            </select>
+            </div>
+          </label>
+
+          <!-- إدخال الاسم -->
+          <label class="field">
+            <span>أضِف أسمك</span>
+            <input
+              id="nameInput"
+              type="text"
+              placeholder="مثال: فيصل المبرد  / Faisal AlMoubrad"
+              maxlength="50"
+            />
+          </label>
+
+          <!-- محاذاة النص -->
+
+
+          <!-- زر تحميل PNG -->
+          <button id="downloadBtn" class="btn primary">تحميل المعايدة PNG</button>
+
+          <!-- زر نسخ رابط ذكي -->
+          <button id="copyLinkBtn" class="btn secondary">
+            مشاركة رابط المعايدة
+          </button>
+<br>
+<br>
+          <!-- رسالة صغيرة للعميل -->
+          <center><small id="status" class="status"
+          
+          </style>
+          إذا واجهتك أي إشكالية تواصل على الرقم: 500474422 966+.
+          </small>
+        </aside>
+        </center>
+
+        <!-- Preview: معاينة القالب والاسم -->
+        <div class="preview">
+          <!-- Canvas: مساحة الرسم (نفس مقاس القالب 1080×1920) -->
+          <canvas id="canvas" width="1080" height="1920"></canvas>
+        </div>
+      </section>
+    </main>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
