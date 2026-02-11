@@ -189,21 +189,6 @@ function draw() {
 }
 
 // ====== 6) تحميل PNG ======
-/**
- * يحول الـcanvas إلى صورة PNG وينزلها للعميل
- */
-function downloadPng() {
-  const name = safeName(nameInput.value);
-  if (!name) {
-    alert("اكتب الاسم أولاً.");
-    return;
-  }
-
-  const link = document.createElement("a");
-  link.download = `greeting-${Date.now()}.png`;
-  link.href = canvas.toDataURL("image/png");
-  link.click();
-}
 
 // ====== 7) نسخ رابط ذكي ======
 /**
@@ -211,7 +196,8 @@ function downloadPng() {
  * يقدر العميل يفتحه وتجيه نفس الإعدادات
  */
 async function copySmartLink() {
-  const fixedUrl = https://almoubrad-card.vercel.app/;
+  const fixedUrl = "https://almoubrad-card.vercel.app/";
+
 
   try {
     await navigator.clipboard.writeText(fixedUrl);
@@ -264,8 +250,32 @@ nameInput.addEventListener("input", () => {
 });
 
 ;
+//التحميل
+downloadBtn.addEventListener("click", async () => {
+  const name = safeName(nameInput.value);
+  if (!name) {
+    alert("اكتب الاسم أولاً.");
+    return;
+  }
 
-downloadBtn.addEventListener("click", downloadPng);
+  const blob = await new Promise(r => canvas.toBlob(r, "image/png", 1));
+  if (!blob) return;
+
+  if (!navigator.share) {
+    alert("افتح الرابط من الجوال للمشاركة.");
+    return;
+  }
+
+  const file = new File([blob], "التهنئة.png", { type: "image/png" });
+
+  try {
+    await navigator.share({
+      files: [file],
+      title: "التهنئة",
+    });
+  } catch (e) {}
+});
+
 copyLinkBtn.addEventListener("click", copySmartLink);
 
 
