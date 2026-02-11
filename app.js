@@ -211,24 +211,13 @@ function downloadPng() {
  * يقدر العميل يفتحه وتجيه نفس الإعدادات
  */
 async function copySmartLink() {
-  const t = templateSelect.value;
-  const name = safeName(nameInput.value);
-  const align =  "center";
-
-
-  const p = new URLSearchParams();
-  p.set("t", t);
-  if (name) p.set("name", name);
-  p.set("align", align);
-
-  const fullUrl = `${window.location.origin}${window.location.pathname}?${p.toString()}`;
+  const fixedUrl = https://almoubrad-card.vercel.app/;
 
   try {
-    await navigator.clipboard.writeText(fullUrl);
+    await navigator.clipboard.writeText(fixedUrl);
     statusEl.textContent = " تم نسخ الرابط";
   } catch {
-    // في بعض المتصفحات ممكن منع clipboard
-    statusEl.textContent = "انسخ الرابط يدويًا من شريط العنوان بالأعلى.";
+    statusEl.textContent = "انسخ الرابط يدويًا من شريط العنوان بالأعلى";
   }
 }
 
